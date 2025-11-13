@@ -1,0 +1,64 @@
+network:
+  rpc_nodes:
+    - url: "http://127.0.0.1:8232"
+      user: "user"
+      pass: "password"
+    - url: "https://mainnet.zcash-rpc.com/"
+      user: ""
+      pass: ""
+    - url: "https://zcash-mainnet.core.chainstack.com/<YOUR_KEY>"
+      user: ""
+      pass: ""
+  retry_wait: 1
+  timeout: 10
+  rate_limit_per_sec: 5
+
+logging:
+  level: INFO
+
+bot:
+  wallet_address: "t1XFKX5ccFCS3d5KUFyTfUT43K3iyXiVB1N"
+  wallets:
+    - label: primary
+      address: "t1XFKX5ccFCS3d5KUFyTfUT43K3iyXiVB1N"
+    - label: backup
+      address: "t1XampleBackupAddress000000000000000000"
+  wallet_strategy: round_robin   # round_robin | richest
+  fee: 0.0001                    # default fee fallback
+  fee_dynamic: true
+  min_confirmations: 1
+  retry: 3
+  auto_loop: false
+  interval_seconds: 20
+  rate_limit_seconds: 2           # delay between tx builds
+  scheduler:
+    enabled: false
+    intervals:
+      - 300
+
+mint:
+  tick: "ZERO"
+  amount: 1000
+  batch: 1
+  targets:
+    - tick: "ZERO"
+      amount: 1000
+      batch: 1
+    - tick: "ZORD"
+      amount: 500
+      batch: 2
+
+mempool:
+  enabled: true
+  max_scan: 50
+
+external_api:
+  fee:
+    url: "https://api.zrc20.example/fee"
+    field: "recommended_fee"
+  ticker:
+    url: "https://api.zrc20.example/ticker"
+
+watcher:
+  enabled: false
+  interval_seconds: 10
