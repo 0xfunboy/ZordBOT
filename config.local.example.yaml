@@ -1,0 +1,11 @@
+# Copy to config.local.yaml and fill in your secrets.
+network:
+  rpc_nodes:
+    - url: "http://127.0.0.1:8232"
+      user: "zcashrpc"
+      pass: "change-me"
+
+secrets:
+  wallet_wif: "PASTE_YOUR_WIF_HERE"
+  wallet_label: "zordbot"
+  wallet_rescan: false

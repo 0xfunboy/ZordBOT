@@ -1,12 +1,6 @@
 network:
   rpc_nodes:
     - url: "http://127.0.0.1:8232"
-      user: "user"
-      pass: "password"
-    - url: "https://mainnet.zcash-rpc.com/"
-      user: ""
-      pass: ""
-    - url: "https://zcash-mainnet.core.chainstack.com/<YOUR_KEY>"
       user: ""
       pass: ""
   retry_wait: 1

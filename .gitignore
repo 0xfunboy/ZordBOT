@@ -6,3 +6,8 @@ __pycache__/
 .venv/
 .env
 .DS_Store
+config.local.yaml
+secrets/
+node/
+data/
+logs/

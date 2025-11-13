@@ -2,11 +2,9 @@ from __future__ import annotations
 
 import argparse
 import logging
-from pathlib import Path
 from typing import List
 
-import yaml
-
+from core.config import load_config
 from core.logger import get_logger
 from core.mint_engine import ExternalTickerWatcher, MempoolScanner, MintEngine, MintTarget
 from core.rpc import RPCClient
@@ -31,19 +29,16 @@ class WalletSelector:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="ZRC-20 mint automation bot")
     parser.add_argument("--config", default="config.yaml", help="Path to config file")
+    parser.add_argument(
+        "--local-config",
+        default="config.local.yaml",
+        help="Optional overrides/secret config file",
+    )
     parser.add_argument("--once", action="store_true", help="Run a single mint cycle")
     parser.add_argument("--loop", action="store_true", help="Run continuous mint loop")
     parser.add_argument("--watch", action="store_true", help="Watch tick and mint when live")
     parser.add_argument("--schedule", action="store_true", help="Run scheduler defined in config")
     return parser.parse_args()
-
-
-def load_config(path: str) -> dict:
-    config_path = Path(path)
-    if not config_path.exists():
-        raise FileNotFoundError(f"Config file not found: {config_path}")
-    with config_path.open() as fp:
-        return yaml.safe_load(fp)
 
 
 def resolve_log_level(cfg: dict) -> int:
@@ -145,7 +140,7 @@ def run_scheduler(bot_fn, intervals: List[int], logger) -> None:
 
 def main() -> None:
     args = parse_args()
-    cfg = load_config(args.config)
+    cfg = load_config(args.config, args.local_config)
     logger = get_logger(level=resolve_log_level(cfg))
 
     rpc = build_rpc(cfg, logger)

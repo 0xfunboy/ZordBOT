@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  zcashd:
+    image: electriccoinco/zcashd:latest
+    container_name: zcashd
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./node:/home/zcash/.zcash
+    ports:
+      - "${ZCASH_RPCPORT:-8232}:8232"
+    command: >
+      zcashd
+      -conf=/home/zcash/.zcash/zcash.conf
+      ${ZCASH_ADDITIONAL_ARGS}
