@@ -1,3 +1,11 @@
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=160&section=header&text=ZordBOT&fontSize=60&fontColor=fff&animation=fadeIn&fontAlignY=38&desc=Zcash%20Ordinal%20mint%20Bot&descAlignY=60&descSize=14" width="100%"/>
+
+<img src="https://skillicons.dev/icons?i=py,bash&theme=dark" alt="Tech stack"/>
+
+</div>
+
 # ZordBOT
 
 A production-ready, modular ZRC-20 minting bot that bundles its own Zcash RPC node bootstrap, multi-wallet orchestration, retry/resume logic, and automation hooks (looping, scheduler, watchers, external APIs).
