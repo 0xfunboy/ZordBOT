@@ -147,3 +147,7 @@ You can also run `zcashd` outside Docker (native install or another host) and ju
 - Target-supply logic (mint only under a given supply threshold).
 
 Contributions and issues are welcome—feel free to fork and extend the modules under `core/`.
+
+## Licensing
+
+Licensing scope and preserved third-party permissions are documented in [LICENSING.md](LICENSING.md). The [0xfunboy Non-Commercial License](LICENSE.md) covers eligible original material only.
